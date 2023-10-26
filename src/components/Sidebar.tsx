@@ -19,12 +19,12 @@ const Leagues = [
 ]
 
 const Sidebar:FC = () => {
-  const [expanded, setExpanded] = useState(true)
+  const [expanded, setExpanded] = useState(false)
   return (
     <aside className="h-screen">
-      <nav className="h-full flex flex-col bg-white border-r shadow-sm">
+      <nav className="h-full flex flex-col bg-white border-r shadow-sm absolute z-50 lg:static">
         <div className="p-4 pb-2 flex justify-between items-center">
-          <div className={`flex overflow-hidden transition-all ${expanded ? 'w-32' : 'w-0'}`}>
+          <div className={`flex overflow-hidden duration-300 transition-all ${expanded ? 'w-32' : 'w-0'}`}>
             <Image src='/images/football-logo.png' className='w-[30px]' width={100} height={100} alt='' />
             <span className="font-semibold">Goalscore</span>
           </div>

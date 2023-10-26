@@ -4,11 +4,12 @@ import {useState} from 'react'
 import { matchesType } from '@/types'
 import LeagueTable from './LeagueTable'
 
-const Status = ({matchesList,matchesListFinished}:{matchesList:matchesType[], matchesListFinished:matchesType[]}) => {
+const Status = ({matchesList,matchesListFinished, matchesLive}:{matchesList:matchesType[], matchesListFinished:matchesType[], matchesLive:matchesType[]}) => {
+    
 
   const [statusMatch, setStatusMatch] = useState("LIVE")
 
-  console.log(matchesList)
+  console.log(matchesLive)
 
   return (
     <div>
@@ -21,19 +22,22 @@ const Status = ({matchesList,matchesListFinished}:{matchesList:matchesType[], ma
 
       <div className='w-full'>
         {statusMatch === "LIVE" ? (
-          matchesList.map((data) => (
-            <div key={data.id}>
-              {data?.status === "LIVE" && (
-                <LeagueTable data={data} />
-              )}
-            </div>
-          ))
+            matchesLive.length > 0 ? (
+                matchesLive.map((data) => (
+                  <div key={data.id}>
+                      {/* {console.log(data?.status)} */}
+                    {data?.status === "LIVE" &&
+                      <LeagueTable data={data} /> 
+                    }
+                  </div>
+                ))
+            ) : <p className="h-scree w-fit  flex justify-center text-white text-xl items-center bg-red-400 px-4 py-2">No Match is Live</p>
         ) : null}
 
         {statusMatch === "MATCH" ? (
           matchesList.map((data) => (
             <div key={data.id}>
-              {data?.status === "TODAY" && (
+              {data?.status === "TIMED" && (
                 <LeagueTable data={data} />
               )}
             </div>
@@ -43,6 +47,7 @@ const Status = ({matchesList,matchesListFinished}:{matchesList:matchesType[], ma
         {statusMatch === "FINISHED" ? (
           matchesList.map((data) => (
             <div key={data.id}>
+                {/* {console.log(data?.status)} */}
               {data?.status === "FINISHED" && (
                 <LeagueTable data={data} />
               )}

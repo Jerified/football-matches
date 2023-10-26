@@ -16,7 +16,7 @@ const SideLink = ({href,name,src, expanded}:linkProps) => {
   return (
     <Link href={href} className={`flex items-center w-full py-2 px-2 rounded-md my-1 group transition-colors ${path === href ? 'bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800' : 'hover:bg-indigo-50 text-gray-500'} `}>
       <Image src={src} className={`${!expanded ? 'w-[40px]': 'w-[30px]'}`} quality={100} alt={name} width={50} height={50} />
-      <p className={`ml-4 text-xs md:text-sm text-semibold overflow-hidden transition-all ${expanded ? 'w-52 ml-3': 'w-0'}`}>{name}</p>
+      <p className={`ml-4 text-xs md:text-sm font-semibold overflow-hidden transition-all duration-300 ${expanded ? 'w-52 ml-3': 'w-0'}`}>{name}</p>
 
       {!expanded && (
         <div

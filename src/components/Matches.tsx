@@ -10,10 +10,10 @@ const Matches = ({data}:{data:matchesType}) => {
   return (
     <div className='grid grid-cols-3'>
       <div className='w-full flex items-center'>
-        <div className='w-[20px] h-[20px] relative mr-2'>
+        <p className='text-sm mr-2'>{data?.homeTeam?.name}</p>
+        <div className='w-[20px] h-[20px] relative '>
           <Image src={data?.homeTeam?.crest!} alt={data?.homeTeam?.name!} fill className='object-cover' />
         </div>
-        <p className='text-sm'>{data?.homeTeam?.name}</p>
       </div> 
       <div className='px-2 m-auto flex justify-center items-center bg-slate-600 rounded-md'>
         {data?.status == 'FINISHED' ? (

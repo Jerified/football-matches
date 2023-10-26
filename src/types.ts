@@ -52,4 +52,5 @@ export type apiOptions = {
     title: string,
     url: string,
     urlToImage: string,
+    publishedAt: string
   }
