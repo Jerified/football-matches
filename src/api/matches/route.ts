@@ -16,7 +16,7 @@ export const getMatchesfootball = async () => {
 
 }
 
-console.log(getMatchesfootball())
+// console.log(getMatchesfootball())
 
 const todayDate = new Date()
 const getDateMonth = new Date(todayDate.getTime());

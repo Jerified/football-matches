@@ -1,5 +1,10 @@
-import {FC} from 'react'
+
+'use client'
+
+import {FC, useState} from 'react'
 import SideLink from './SideLink'
+import Image from 'next/image'
+import { ChevronFirst, ChevronLast } from 'lucide-react'
 
 const Leagues = [
   { id:1,name:"Premier League",href:"premier-league",emblem:"/images/leagues/premier_league.webp"},
@@ -13,22 +18,49 @@ const Leagues = [
   { id:9,name:"Copa Libertadores",href:"copa-libertadores",emblem:"/images/leagues/copa_libertadores.webp"},
 ]
 
-const Sidebar:FC = async() => {
+const Sidebar:FC = () => {
+  const [expanded, setExpanded] = useState(true)
   return (
-    <section className='px-2 md:px-4 py-2 bg-white rounded-md'>
-      <div>
-        <h1 className='font-bold text-xl mb-4 border-b pb-3'>Football Leagues</h1>
-        <ul className='space-y-2'>
+    <aside className="h-screen">
+      <nav className="h-full flex flex-col bg-white border-r shadow-sm">
+        <div className="p-4 pb-2 flex justify-between items-center">
+          <div className={`flex overflow-hidden transition-all ${expanded ? 'w-32' : 'w-0'}`}>
+            <Image src='/images/football-logo.png' className='w-[30px]' width={100} height={100} alt='' />
+            <span className="font-semibold">Goalscore</span>
+          </div>
+          <button onClick={() => setExpanded(curr => !curr)} className="p-2 rounded-lg bg-gray-50 hover:bg-gray-100">
+            {expanded ? <ChevronFirst /> : <ChevronLast />}
+          </button>
+        </div>
+        <ul className='space-y-2 flex-1'>
           {
             Leagues.map((league) => (
               <div key={league?.id} className='flex'>
-                <SideLink href={league.href} name={league?.name} src={league?.emblem} />
+                <SideLink href={league.href} name={league?.name} src={league?.emblem} expanded={expanded} />
               </div>
             ))
           }
         </ul>
-      </div>
-    </section>
+        
+        
+
+      </nav>
+
+    </aside>
+    // <section className='px-2 md:px-4 py-2 bg-white rounded-md'>
+    //   <div>
+    //     <h1 className='font-bold text-xl mb-4 border-b pb-3'>Football Leagues</h1>
+    //     <ul className='space-y-2'>
+    //       {
+    //         Leagues.map((league) => (
+    //           <div key={league?.id} className='flex'>
+    //             <SideLink href={league.href} name={league?.name} src={league?.emblem} />
+    //           </div>
+    //         ))
+    //       }
+    //     </ul>
+    //   </div>
+    // </section>
   )
 }
 

@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className='px-2 md:px-14 bg-[#F2F2F2] '>
+        <main className='h-screen bg-[#F2F2F2] '>
           <Navbar />
 
           <section className='flex space-x-4'>
