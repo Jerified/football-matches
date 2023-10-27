@@ -3,7 +3,7 @@ import { apiOptions, matchesType } from "@/types"
 const options:apiOptions =  {
   next: { revalidate: 1 },
   headers: {
-    "X-Auth-Token": "adb79a59adf74d09b59ce1362ce4336a",
+    "X-Auth-Token": process.env.API_TOKEN,
     "Content-Type": "application/json",
   },
 }
@@ -38,8 +38,8 @@ export const getMatchesfootballFinished = async () => {
 }
 
 export const getNewsInfo = async () => {
-  const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=${process.env.API_TOKEN_NEWS}&q=soccer&pageSize=5`,{next:{revalidate:30}})
-  
+  const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=${process.env.API_TOKEN_NEWS}&q=soccer&pageSize=6`,{next:{revalidate:60}})
+
   return newsData.json()
 }
 

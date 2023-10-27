@@ -8,7 +8,6 @@ const News = async () => {
   const getNews = await getNewsInfo()
 
   const newsData:newsType[] = getNews.articles
-  console.log(newsData)
   
   const utcString = (time: string) => {
     let Time = moment.utc(time).fromNow()
@@ -16,7 +15,7 @@ const News = async () => {
   };
 
   return (
-    <div className='w-[350px] flex flex-col items-en items bg-white rounded-md px-2 md:px-6 py-2'>
+    <div className='w-[350px] min-h-screen hidden fixed right-0 lg:flex flex-col items-en items bg-white rounded-md px-2 md:px-6 py-2 overflow-x-visible'>
       <h1 className='text-sm  font-bold mb-4 border-b pb-4'>Recent News</h1>
       <div>
         <div className="">
@@ -29,10 +28,10 @@ const News = async () => {
             ))}
         </div>
         {newsData.slice(2).map((news) => (
-          <Link key={`${news.title}`} href={news.url} className="w-full pt-4" legacyBehavior>
+          <Link key={`${news.title}`} href={news.url} className="w-full" legacyBehavior>
             <a target="_blank">
-              <div className="relative w-full flex gap-2 mb-4 ">
-                <Image src={news?.urlToImage != null ? news?.urlToImage :  '/img/news-football.webp'} alt={news.title} width={150} height={150} className="object-cover w-[40px]rounded-md" />
+              <div className="relative w-full flex gap-2 mb-4  mt-8">
+                <Image src={news?.urlToImage != null ? news?.urlToImage :  '/img/news-football.webp'} alt={news.title} width={150} height={150} className="object-cover h-[80px] w-[80px] rounded-md" />
                  <div className="">
                  <p className="font-semibold text-[0.85rem]">{news.title}</p>
                      <p className="text-xs text-gray-400">About {utcString(news.publishedAt)}</p>

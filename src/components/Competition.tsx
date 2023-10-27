@@ -2,7 +2,6 @@ import { matchesType } from '@/types'
 import Image from 'next/image'
 
 const Competition = ({data}:{data:matchesType}) => {
-  console.log(data.utcDate);
   
   const nd = new Date(data?.utcDate)
   const dateConvert = nd.toDateString()

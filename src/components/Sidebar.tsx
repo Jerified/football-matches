@@ -21,8 +21,8 @@ const Leagues = [
 const Sidebar:FC = () => {
   const [expanded, setExpanded] = useState(false)
   return (
-    <aside className="h-screen">
-      <nav className="h-full flex flex-col bg-white border-r shadow-sm absolute z-50 lg:static">
+    <aside className="h-full">
+      <nav className="h-full flex flex-col bg-white border-r shadow-sm fixed z-50 lg:stati">
         <div className="p-4 pb-2 flex justify-between items-center">
           <div className={`flex overflow-hidden duration-300 transition-all ${expanded ? 'w-32' : 'w-0'}`}>
             <Image src='/images/football-logo.png' className='w-[30px]' width={100} height={100} alt='' />

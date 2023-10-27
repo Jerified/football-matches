@@ -10,7 +10,7 @@ const Matches = ({data}:{data:matchesType}) => {
   return (
     <div className='grid grid-cols-3'>
       <div className='w-full flex items-center'>
-        <p className='text-sm mr-2'>{data?.homeTeam?.name}</p>
+        <p className='text-sm mr-2 whitespace-nowra'>{data?.homeTeam?.name}</p>
         <div className='w-[20px] h-[20px] relative '>
           <Image src={data?.homeTeam?.crest!} alt={data?.homeTeam?.name!} fill className='object-cover' />
         </div>
@@ -22,11 +22,11 @@ const Matches = ({data}:{data:matchesType}) => {
           <p className='py-1 text-teal-400 text-xs'>{getDate}</p>
         )}
       </div>
-      <div className='w-full flex items-center justify-end'>
-        <p className='text-sm text-right'>{data.awayTeam?.name}</p>
-        <div className='w-[20px] h-[20px] relative ml-2'>
+      <div className='w-full flex items-center justify-end gap-2'>
+      <div className='w-[20px] h-[20px] relative'>
           <Image src={data?.awayTeam?.crest!} alt={data.awayTeam?.name!} fill className='object-cover' />
         </div>
+        <p className='text-sm text-righ'>{data.awayTeam?.name}</p>
       </div>
     </div>
   )
