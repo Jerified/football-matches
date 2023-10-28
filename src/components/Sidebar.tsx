@@ -32,7 +32,7 @@ const Sidebar:FC = () => {
             {expanded ? <ChevronFirst /> : <ChevronLast />}
           </button>
         </div>
-        <ul className='space-y-2 flex-1'>
+        <ul className='space-y- flex-1'>
           {
             Leagues.map((league) => (
               <div key={league?.id} className='flex'>

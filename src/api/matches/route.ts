@@ -17,7 +17,7 @@ export const getMatchesfootball = async () => {
 
 export const getLiveMatches = async () => {
     const matchData = await fetch('https://api.football-data.org/v4/matches?status=LIVE',options)
-    // console.log(matchData)
+    console.log(matchData)
     return matchData.json()
   }
 
@@ -52,8 +52,8 @@ export const getNewsInfo = async () => {
 export const filterLeague = async (filterData:string) => {
   const getEnglishLeague = await getMatchesfootball()
   const filterPremierLeague:matchesType[] = getEnglishLeague?.matches
-  if (getEnglishLeague !== null && getEnglishLeague !== undefined) {
-    const getData = filterPremierLeague.filter((item) => item.competition.name === filterData)
+  if (getEnglishLeague) {
+    const getData = filterPremierLeague?.filter((item) => item.competition.name === filterData)
     return getData
   } else {
     return []
