@@ -3,7 +3,7 @@ import { apiOptions, matchesType } from "@/types"
 const options:apiOptions =  {
   next: { revalidate: 1 },
   headers: {
-    "X-Auth-Token": process.env.NEXT_PUBLIC_DATA_API_TOKEN,
+    "X-Auth-Token": "adb79a59adf74d09b59ce1362ce4336a",
     "Content-Type": "application/json",
   },
 }
@@ -11,13 +11,13 @@ const options:apiOptions =  {
 
 export const getMatchesfootball = async () => {
   const matchData = await fetch('https://api.football-data.org/v4/matches',options)
-//   console.log(matchData)
+  // console.log(matchData)
   return matchData.json()
 }
 
 export const getLiveMatches = async () => {
     const matchData = await fetch('https://api.football-data.org/v4/matches?status=LIVE',options)
-    console.log(matchData)
+    // console.log(matchData)
     return matchData.json()
   }
 
@@ -36,12 +36,17 @@ export const getMatchesfootballFinished = async () => {
   const matchData = await fetch(`https://api.football-data.org/v4/matches?date=${yesterday}`,options)
   return matchData.json()
 }
-
 export const getNewsInfo = async () => {
-  const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=${process.env.NEXT_PUBLIC_DATA_API_TOKEN_NEWS}&q=soccer&pageSize=6`,{next:{revalidate:60}})
-console.log(newsData);
-
-  return newsData.json()
+  try {
+    const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=ee1d85cdcfd24430b4d538ad678aea83&q=soccer&pageSize=6`,{next:{revalidate:60}})
+    // console.log(newsData);
+  
+    return newsData.json()
+  } catch (error) {
+    // console.error(error);
+    // handle the error here
+    throw Error('unable to fetch')
+  }
 }
 
 export const filterLeague = async (filterData:string) => {

@@ -3,9 +3,9 @@ import {matchesType} from '@/types'
 import Matches from './Matches'
 
 const LeagueTable = ({data}:{data:matchesType}) => {
-    // console.log(data)
+    console.log(data)
 
-    // let matchesArray = Object.values(data)
+    let matchesArray = Object.values(data)
     // // console.log(matchesArray);
 
     // let groupedMatches = {}

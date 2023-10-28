@@ -4,16 +4,16 @@ import { newsType } from "@/types"
 import { getNewsInfo } from "@/api/matches/route"
 import { formatDistanceToNow } from 'date-fns';
 
+const utcString = (time: string) => {
+  let Time = formatDistanceToNow(new Date(time), { addSuffix: true })
+  return Time
+};
+
 const News = async () => {
   const getNews = await getNewsInfo()
 
   const newsData:newsType[] = getNews.articles
   
-  
-const utcString = (time: string) => {
-  let Time = formatDistanceToNow(new Date(time), { addSuffix: true })
-  return Time
-};
 
   return (
     <div className='w-[350px] min-h-screen hidden fixed right-0 lg:flex flex-col items-en items bg-white rounded-md px-2 md:px-6 py-2 overflow-x-visible'>
@@ -28,7 +28,7 @@ const utcString = (time: string) => {
                 </div>
             ))}
         </div>
-        {newsData.slice(2).map((news) => (
+        {newsData?.slice(2).map((news) => (
           <Link key={`${news.title}`} href={news.url} className="w-full" legacyBehavior>
             <a target="_blank">
               <div className="relative w-full flex gap-2 mb-4  mt-8">
