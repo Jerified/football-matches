@@ -3,7 +3,7 @@ import {matchesType} from '@/types'
 import Matches from './Matches'
 
 const LeagueTable = ({data}:{data:matchesType}) => {
-    console.log(data)
+    // console.log(data)
 
     let matchesArray = Object.values(data)
     // // console.log(matchesArray);
@@ -22,7 +22,7 @@ const LeagueTable = ({data}:{data:matchesType}) => {
     // let groupMatches = matchesArray.reduce((acc, match) => {
     //     let league = match
     //     console.log(league);
-    //     console.log(acc);
+    //     // console.log(acc);
         
 
     //     // if (acc[league]) {
@@ -38,7 +38,6 @@ const LeagueTable = ({data}:{data:matchesType}) => {
     //     acc[league].push(match)
     //     console.log(acc);
         
-    //     console.log(acc.undefined);
         
     //     return acc
     // }, {})

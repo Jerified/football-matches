@@ -3,13 +3,15 @@
 import {useState} from 'react'
 import { matchesType } from '@/types'
 import LeagueTable from './LeagueTable'
+import LiveTable from './LiveTable'
 
 const Status = ({matchesList,matchesListFinished, matchesLive}:{matchesList:matchesType[], matchesListFinished:matchesType[], matchesLive:matchesType[]}) => {
     
 
   const [statusMatch, setStatusMatch] = useState("LIVE")
 
-  console.log(matchesLive)
+  console.log(matchesLive[0])
+  console.log(matchesList[0])
 
   return (
     <div>
@@ -26,8 +28,8 @@ const Status = ({matchesList,matchesListFinished, matchesLive}:{matchesList:matc
                 matchesLive.map((data) => (
                   <div key={data.id}>
                       {/* {console.log(data?.status)} */}
-                    {data?.status === "LIVE" &&
-                      <LeagueTable data={data} /> 
+                    {data?.status === "IN_PLAY" && 'PAUSED' &&
+                      <LiveTable data={data} /> 
                     }
                   </div>
                 ))

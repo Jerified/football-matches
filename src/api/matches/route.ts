@@ -31,6 +31,7 @@ const month = String(getDateMonth.getMonth() + 1).padStart(2, '0');
 const day = String(getDateMonth.getDate()).padStart(2, '0');
 
 const yesterday = [year, month, day].join('-');
+console.log(yesterday)
     
 export const getMatchesfootballFinished = async () => {
   const matchData = await fetch(`https://api.football-data.org/v4/matches?date=${yesterday}`,options)
