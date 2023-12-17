@@ -13,10 +13,12 @@ const News = async () => {
   const getNews = await getNewsInfo()
 
   const newsData:newsType[] = getNews.articles
+
+  console.log(newsData.slice(2))
   
 
   return (
-    <div className='w-[350px] min-h-screen hidden fixed right-0 lg:flex flex-col items-en items bg-white rounded-md px-2 md:px-6 py-2 overflow-x-visible'>
+    <div className='w-[350px] min-h-screen hidden fixed right-0 lg:flex flex-col bg-white rounded-md px-2 md:px-6 py-2 overflow-y-visible'>
       <h1 className='text-sm  font-bold mb-4 border-b pb-4'>Recent News</h1>
       <div>
         <div className="">

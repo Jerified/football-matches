@@ -37,6 +37,11 @@ export const getMatchesfootballFinished = async () => {
   const matchData = await fetch(`https://api.football-data.org/v4/matches?date=${yesterday}`,options)
   return matchData.json()
 }
+
+export const getMatchesDetail = async (id: any) => {
+  const matchData = await fetch(`https://api.football-data.org/v4/matches/${id}`,options)
+  return matchData.json()
+}
 export const getNewsInfo = async () => {
   try {
     const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=ee1d85cdcfd24430b4d538ad678aea83&q=soccer&pageSize=6`,{next:{revalidate:60}})

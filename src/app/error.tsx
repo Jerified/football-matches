@@ -11,7 +11,7 @@ const Error = ({error, reset} : {
     }, [error])
   return (
     <div>
-        <h1>Error</h1>
+        <h1 className='text-4xl font-semibold text-black'>Error</h1>
         <pre>{JSON.stringify(error, null, 2)}</pre>
         <button onClick={reset}>Reset</button>
     </div>
