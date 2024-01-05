@@ -14,7 +14,7 @@ const News = async () => {
 
   const newsData:newsType[] = getNews.articles
 
-  console.log(newsData.slice(2))
+  // console.log(newsData.slice(2))
   
 
   return (
