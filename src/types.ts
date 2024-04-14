@@ -37,6 +37,7 @@ export type apiOptions = {
   }
   
   export type matchesType = {
+    length: number
     area: matchesArea,
     competition: matchesCompetition,
     id: number,

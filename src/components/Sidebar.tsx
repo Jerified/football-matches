@@ -21,7 +21,7 @@ const Leagues = [
 const Sidebar:FC = () => {
   const [expanded, setExpanded] = useState(false)
   return (
-    <aside className="h-full">
+    <aside className="h-full absolute">
       <nav className="h-full flex flex-col bg-white border-r shadow-sm fixed z-50 lg:stati">
         <div className="p-4 pb-2 flex justify-between items-center">
           <div className={`flex overflow-hidden duration-300 transition-all ${expanded ? 'w-32' : 'w-0'}`}>

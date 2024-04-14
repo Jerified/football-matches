@@ -18,10 +18,11 @@ const News = async () => {
   
 
   return (
-    <div className='w-[350px] min-h-screen hidden fixed right-0 lg:flex flex-col bg-white rounded-md px-2 md:px-6 py-2 overflow-y-visible'>
-      <h1 className='text-sm  font-bold mb-4 border-b pb-4'>Recent News</h1>
+    <div className='lg:w-[30%] lg:min-h-screen lg:fixed lg:right-0 lg:flex flex-col rounded-md  md:px-6 lg:py-4 py-8 lg:overflow-y-visible'>
+      <h1 className=" md:text-xl font-bold bg-[#BEF264] pl-2 pr-20 py-1 tracking-wide w-fit">Feed</h1>
+        <div className=" border-b-2 border-[#BEF264] w-full"></div>
       <div>
-        <div className="">
+        {/* <div className="">
             {newsData?.slice(0,1).map((news) => (
                 <div className="" key={news.title}>
                      <Image src={news?.urlToImage != null ? news?.urlToImage :  '/img/news-football.webp'} alt={news.title} width={250} height={250} className="object-cover w-full rounded-md" />
@@ -29,15 +30,15 @@ const News = async () => {
                      <p className="text-xs text-gray-400">About {utcString(news.publishedAt)}</p>
                 </div>
             ))}
-        </div>
+        </div> */}
         {newsData?.slice(2).map((news) => (
           <Link key={`${news.title}`} href={news.url} className="w-full" legacyBehavior>
             <a target="_blank">
-              <div className="relative w-full flex gap-2 mb-4  mt-8">
+              <div className="relative w-full flex items-center gap-2 mb-4  mt-8">
                 <Image src={news?.urlToImage != null ? news?.urlToImage :  '/img/news-football.webp'} alt={news.title} width={150} height={150} className="object-cover h-[80px] w-[80px] rounded-md" />
                  <div className="">
-                 <p className="font-semibold text-[0.85rem]">{news.title}</p>
-                     <p className="text-xs text-gray-400">About {utcString(news.publishedAt)}</p>
+                 <p className=" text-[0.85rem] text-white">{news.title}</p>
+                     <p className="text-[#BEF264]/60 text-xs">About {utcString(news.publishedAt)}</p>
                  </div>
               </div>
             </a>

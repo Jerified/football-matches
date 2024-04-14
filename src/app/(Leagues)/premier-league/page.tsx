@@ -6,6 +6,7 @@ import {AiOutlineArrowLeft} from 'react-icons/ai'
 
 const English = async () => {
   const getEnglishLeague = await filterLeague('Premier League')
+  console.log(getEnglishLeague)
 
   return (
     <div className='pr-6 pl-20 lg:pl-[5rem] lg:px-[24rem] md:pl-24 py-4 md:w-[600px] flex-1'>

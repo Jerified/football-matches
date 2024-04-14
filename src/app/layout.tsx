@@ -19,11 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className='h-screen bg-[#F2F2F2] overflow-x-hidden'>
+      <body className={`${inter.className} min-h-screen bg-[#165D31] overflow-x-hidde px-4`}>
+        <main className='max-w-7xl mx-auto'>
           <Navbar />
-          <section className='flex space-x-4 '>
-            <Sidebar />
+          <section className=' lg:flex'>
+            {/* <Sidebar /> */}
             {children}
             <News />
           </section>

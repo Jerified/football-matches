@@ -14,15 +14,15 @@ const Status = ({matchesList,matchesListFinished, matchesLive}:{matchesList:matc
   console.log(matchesList[0])
 
   return (
-    <div>
-      <div className='flex space-x-4 mb-2 md:mb-4'>
+    <div className="w-full">
+      <div className='fixed md:relative inset-x-0 bottom-4 w-fit rounded-full bg-green-300 px-10 py-3 flex mx-auto'>
 
         <button onClick={() => setStatusMatch("LIVE")} className={`px-2 py-1 text-primary text-lg md:text-lg rounded-md ${statusMatch === 'LIVE' ? 'uppercase text-purple-700 underline underline-offset-2 font-semibold' : 'text-slate-500 font-regular'}`}>Live</button>
         <button onClick={() => setStatusMatch("MATCH")} className={`px-2 py-1 text-primary text-lg md:text-lg rounded-md ${statusMatch === 'MATCH' ? 'uppercase text-purple-700 underline underline-offset-2 font-semibold' : 'text-slate-500 font-regular'}`}>Match</button>
         <button onClick={() => setStatusMatch("FINISHED")} className={`px-2 py-1 text-primary text-lg rounded-md ${statusMatch === 'FINISHED'  ? 'uppercase text-purple-700 underline underline-offset-2 font-semibold' : 'text-slate-500 font-regular'}`}>finished</button>
       </div>
 
-      <div className='w-full'>
+      <div className='w-full pt-4'>
         {statusMatch === "LIVE" ? (
             matchesLive.length > 0 ? (
                 matchesLive.map((data) => (

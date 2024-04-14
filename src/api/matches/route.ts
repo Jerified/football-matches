@@ -10,16 +10,22 @@ const options:apiOptions =  {
 
 
 export const getMatchesfootball = async () => {
-  const matchData = await fetch('https://api.football-data.org/v4/matches',options)
-  // console.log(matchData)
+  const matchData = await fetch('https://api.football-data.org/v4/competitions',options)
+  console.log(matchData)
   return matchData.json()
 }
 
 export const getLiveMatches = async () => {
-    const matchData = await fetch('https://api.football-data.org/v4/matches?status=LIVE',options)
+    const matchData = await fetch('https://api.football-data.org/v4/matches?status=IN_PLAY',options)
     console.log(matchData)
     return matchData.json()
   }
+
+  export const getScheduleMatches = async () => {
+    const matchData = await fetch('https://api.football-data.org/v4/matches?status=SCHEDULED',options)
+    console.log(matchData)
+    return matchData.json()
+  } 
 
 // console.log(getMatchesfootball())
 
