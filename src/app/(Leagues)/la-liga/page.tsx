@@ -1,22 +1,22 @@
 
-import { filterLeague } from "@/api/matches/route"
-import LeagueTable from "@/components/LeagueTable"
-import Link from "next/link"
-import {AiOutlineArrowLeft} from 'react-icons/ai'
+// import { filterLeague } from "@/api/matches/route"
+// import LeagueTable from "@/components/LeagueTable"
+// import Link from "next/link"
+// import {AiOutlineArrowLeft} from 'react-icons/ai'
 
-const LaLiga = async () => {
-  const getLaLiga = await filterLeague('Primera Division')
+// const LaLiga = async () => {
+//   const getLaLiga = await filterLeague('Primera Division')
 
-  return (
-    <div className='pr-6 pl-20 lg:pl-[5rem] lg:px-[24rem] md:pl-24 py-4 md:w-[600px] flex-1'>
-             <Link href={'/'} className="mb-5 text-2xl"><AiOutlineArrowLeft /></Link>
-      {getLaLiga.map((data) => (
-        <div key={data.id}>
-          <LeagueTable data={data} />
-        </div>
-      ))}
-    </div>
-  )
-}
+//   return (
+//     <div className='pr-6 pl-20 lg:pl-[5rem] lg:px-[24rem] md:pl-24 py-4 md:w-[600px] flex-1'>
+//              <Link href={'/'} className="mb-5 text-2xl"><AiOutlineArrowLeft /></Link>
+//       {getLaLiga.map((data) => (
+//         <div key={data.id}>
+//           <LeagueTable data={data} />
+//         </div>
+//       ))}
+//     </div>
+//   )
+// }
 
-export default LaLiga
+// export default LaLiga

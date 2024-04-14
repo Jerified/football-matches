@@ -37,10 +37,6 @@ export default async function Home() {
       <div className="flex">
         <h1 className=" md:text-xl font-bold bg-[#BEF264] pl-2 pr-10 py-1 tracking-wide">Matches</h1>
         <div className=" border-b-2 border-[#BEF264] w-full"></div>
-        {/* <Status matchesList={matchesDatas} matchesLive={matchesLive} matchesListFinished={matchesDatasFinished} /> */}
-        {/* <div className="px-4 py-0 md:py-1 bg-slate-600 rounded-md text-textPrimary text-sm">
-          <p>{`${dateConvert}`}</p>
-        </div> */}
       </div>
        <div className="flex py-6 gap-6 overflow-x-scroll whitespace-nowrap scroll-smooth">
         {/* <div className="w-full"> */}
