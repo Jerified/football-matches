@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-// import { useFormatter } from 'next-intl'
 import { getScheduleMatches } from "@/api/matches/route"
 
 import {format, parseISO } from 'date-fns'
@@ -17,7 +16,7 @@ const UpcomingMatches = async () => {
     }
 
     const updateArrayByCompetitionName = (arr: any, competitionName: any) => {
-        const foundObjects = arr.filter((obj: any) => competitionName.includes(obj.competition.code));
+        const foundObjects = arr?.filter((obj: any) => competitionName.includes(obj.competition.code));
         foundObjects.forEach((foundObject: any) => {
             const foundIndex = arr.findIndex((obj: any) => obj === foundObject)
             arr.splice(foundIndex, 1)
