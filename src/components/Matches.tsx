@@ -1,34 +1,39 @@
 import Image from 'next/image'
-import { matchesType } from '@/types';
+import React from 'react'
+// import { getScheduleMatches } from "@/api/matches/route"
+import {format, parseISO } from 'date-fns'
 
-const Matches = ({data}:{data:matchesType}) => {
-  const getDate = new Date(data?.utcDate).toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+
+const Matches = ({data}:{data:any}) => {
+    const formatDate = (dateString: string) => {
+        const date = parseISO(dateString);
+
+        return format(date, "eee, d MMM yyyy. hh.mmaaa");
+    }
+
+    const datas = data.matches
+    console.log(datas);
+    
 
   return (
-    <div className='grid grid-cols-3'>
-      <div className='w-full flex items-center'>
-        <p className='text-sm mr-2 whitespace-nowra'>{data?.homeTeam?.name}</p>
-        <div className='w-[20px] h-[20px] relative '>
-          <Image src={data?.homeTeam?.crest!} alt='' width={30} height={30} className='object-cover' />
+    <div className="flex flex-col gap-3">
+            {datas?.map((upcoming: any) => {
+                // console.log(upcoming?.awayTeam?.name && upcoming?.awayTeam?.name );
+                
+                return (
+                    <div key={upcoming?.id} className="bg-black/80 w-full rounded-2xl p-4 flex gap-4 items-center">
+                        <div className='flex '>
+                            <Image className=' mr-[-0.8rem] relative z-50 object-contain rounded-full border-gray-400 bg-black/70  p-3' src={upcoming?.homeTeam?.crest || ''} width={60} height={60} alt={''} quality={100} />
+                            <Image className='object-contain rounded-full border-gray-400 bg-black/70  p-3' src={upcoming?.awayTeam?.crest || ''} width={60} height={60} alt={''} quality={100} />
+                        </div>
+                        <div>
+                            <h3 className='text-white font-[500] text-md'>{upcoming?.homeTeam?.name || '---'} VS {upcoming?.awayTeam?.name || '---'}</h3>
+                            <p className='text-[#BEF264]/60 text-xs'>{formatDate(upcoming?.utcDate) || '---'}</p>
+                        </div>
+                    </div>
+                )
+            })}
         </div>
-      </div> 
-      <div className='px-2 m-auto flex justify-center items-center bg-slate-600 rounded-md'>
-        {data?.status == 'FINISHED' ? (
-          <p className='py-1 text-teal-400 text-xs'>{data?.score?.fullTime.home} : {data.score?.fullTime.away}</p>
-          ) : (
-          <p className='py-1 text-teal-400 text-xs'>{getDate}</p>
-        )}
-      </div>
-      <div className='w-full flex items-center justify-end gap-2'>
-      <div className='w-[20px] h-[20px] relative'>
-          <Image src={data?.awayTeam?.crest!} alt='' width={30} height={30} className='object-cover' />
-        </div>
-        <p className='text-sm text-righ'>{data.awayTeam?.name}</p>
-      </div>
-    </div>
   )
 }
 

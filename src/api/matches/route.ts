@@ -15,6 +15,12 @@ export const getMatchesfootball = async () => {
   return matchData.json()
 }
 
+export const getMatchesInfo = async (code: string) => {
+    const matchData = await fetch(`https://api.football-data.org/v4/competitions/${code}/matches/?status=SCHEDULED`,options)
+    console.log(matchData)
+    return matchData.json()
+  }
+
 export const getLiveMatches = async () => {
     const matchData = await fetch('https://api.football-data.org/v4/matches?status=IN_PLAY',options)
     console.log(matchData)
