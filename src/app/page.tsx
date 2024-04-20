@@ -39,7 +39,7 @@ export default async function Home() {
             {matchesDatas.map((league: any) => {
                 // console.log(league)
                 return (
-                <Link href={`/matches/${league.code}`} key={league.name} className="cursor-pointer  min-w-[15%] lg:min-w-[10%] ">
+                <Link href={`/Tables/${league.code}`} key={league.name} className="cursor-pointer  min-w-[15%] lg:min-w-[10%] ">
                     <div className="bg-black/70 p-3 rounded-[100%] h-full">
                         <Image className='overflow-hidden rounded-ful h-full w-full' src={league?.emblem} width={80} height={80} alt={league.name} quality={100} />
                     </div>

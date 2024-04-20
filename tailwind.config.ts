@@ -11,6 +11,6 @@ const config: Config = {
      
     },
   },
-  plugins: [require('tailwind-scrollbar-hide')],
+  plugins: [require('tailwind-scrollbar-hide'), require("daisyui")],
 }
 export default config
