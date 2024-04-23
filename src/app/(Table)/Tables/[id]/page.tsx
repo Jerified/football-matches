@@ -15,7 +15,7 @@ const Tables = async ({ params }: Params) => {
   const data = await getLeagueStanding(query)
     console.log(data);
   return (
-    <div className='w-full -mx-4'>
+    <div className='w-full mx-[-1rem]'>
         <LeagueTable data={data.standings[0].table} />
     </div>
   )

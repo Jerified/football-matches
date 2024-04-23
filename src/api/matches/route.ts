@@ -1,7 +1,7 @@
 import { apiOptions, matchesType } from "@/types"
 
 const options:apiOptions =  {
-  next: { revalidate: 1 },
+  next: { revalidate: 0 },
   headers: {
     "X-Auth-Token": "adb79a59adf74d09b59ce1362ce4336a",
     "Content-Type": "application/json",
